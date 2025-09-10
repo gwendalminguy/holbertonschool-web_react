@@ -27,5 +27,13 @@ const director1: Directors = {
   numberOfReports: 17,
 }
 
-console.log(teacher1);
-console.log(director1);
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  const result: string = `${firstName[0]}. ${lastName}`
+  return result;
+}
+
+console.log(printTeacher(director1.firstName, director1.lastName));
