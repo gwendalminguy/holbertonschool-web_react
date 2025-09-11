@@ -27,6 +27,9 @@ const director1: Directors = {
   numberOfReports: 17,
 }
 
+console.log(teacher1);
+console.log(director1);
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -36,3 +39,30 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 }
 
 console.log(printTeacher(director1.firstName, director1.lastName));
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework() {
+    return 'Currently working';
+  }
+
+  displayName() {
+    return this.firstName;
+  }
+}
